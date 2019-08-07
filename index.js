@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const token = "NjAwNTc5ODU5OTc4Mzg3NDc3.XTbTUw.aN4i1qLAXtdnP42UQdVyn7c4NLs"
+const token = "NjAyNzIyNjE0MTQxNTE3ODI0.XUZ0Uw.kHuFkAEGD46v0jxJo-XeojtRneU"
 
 
 client.login(token);
@@ -16,10 +16,10 @@ client.on("message", message =>{
 
 
     
-addQueue(".", userQueue1, message, "Rank Queue");
-addQueue("!", userQueue2, message, "Some Other Queue");
-addQueue("$", userQueue3, message, "Some Other Queue2");
-addQueue("?", userQueue4, message, "Some Other Queue3");
+addQueue(".", userQueue1, message, "q1");
+addQueue("!", userQueue2, message, "Friends List Queue");
+addQueue("$", userQueue3, message, "q3");
+addQueue("?", userQueue4, message, "q4");
 
 
     
@@ -27,10 +27,18 @@ addQueue("?", userQueue4, message, "Some Other Queue3");
 //misc commands
 
 switch(message.content){
-    case "!author":
-        message.channel.send("Created by Michael Corleone for the Thievinghost Clan. (2019)");
+    case "!auth":
+        message.channel.send("This bot was created by @NewsCorpReporter#7291 - Thieivnghost Developer");
 }
-    
+   switch(message.content){
+    case "!giveaways":
+        message.channel.send("You can join daily giveaways in the #giveaways section!");
+} 
+   switch(message.content){
+    case "?help":
+        message.channel.send("Try asking members your question in the #general tab. If they can't help there type __@staff__ to tag a staff member.");
+} 
+
 
     
 });
@@ -57,7 +65,7 @@ function addQueue(prefix, userqueue, message, queueName){
                      
                     }
                     );
-                    message.channel.send(message.author.username + " joined!");
+                    message.channel.send(message.author.username + " **SUCCESS!** You have joined the queue.");
         
             break;
 
@@ -88,16 +96,17 @@ function addQueue(prefix, userqueue, message, queueName){
             userqueue = [];
 
             if(userqueue.length == 0){
+				         
                 message.channel.send("**" + queueName + "** successfully cleared.");
             }
             else{
+				 
                 message.channel.send("**Failed to clear queue**");
             }
 
             break;
     }
 }
-
 
 
 
